@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Me</title>
+    <style>
+        :root {
+            --primary-color: #795548; /* Cokelat Tua (Earthy) */
+            --accent-color: #A1887F;  /* Cokelat Muda/Taupe */
+            --background-color: #2b1700; 
+            --text-color: #48260d;
+            --light-text-color: #48260d;
+        }
+
+        /* Styling Body */
+        body {
+            font-family: 'Georgia', serif; 
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color); 
+            color: var(--text-color);
+            line-height: 1.8; 
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        /* Container utama */
+        .container {
+            width: 70%;
+            max-width: 900px; 
+            padding: 40px 50px;
+            background: #FFFFFF; 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px); 
+        }
+
+        /* Judul Utama */
+        h1 {
+            text-align: center;
+            font-family: 'Playfair Display', serif; 
+            font-size: 3em;
+            color: #48260d;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Sub-judul */
+        h2, h3 {
+            color: var(--primary-color);
+            font-weight: 400; 
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+
+        /* Layout Perkenalan dengan Flexbox (Foto & Teks) */
+        .intro-section {
+            display: flex;
+            align-items: flex-start; 
+            margin-bottom: 50px;
+            gap: 40px;
+        }
+
+        /* Styling Foto Profil */
+        .profile-photo {
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            border-color: #2b1700			
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        /* Teks Perkenalan */
+        .intro-text p {
+            font-size: 1.1em;
+            color: var(--light-text-color);
+        }
+
+        /* Biodata */
+        .biodata p {
+            font-size: 0.95em;
+            background: #FFFFFF;
+            padding: 15px 0;
+            margin-top: 15px;
+            border-top: 1px solid #EEEEEE;
+        }
+        
+        /* Daftar (History Pendidikan & Kehidupan) */
+        ol, ul {
+            padding-left: 20px;
+            list-style: none; 
+        }
+        
+        li {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        /* Menambahkan bullet kustom yang minimalis */
+        li::before {
+            content: '•'; 
+            color: var(--primary-color); 
+            font-weight: bold; 
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        li b {
+            color: var(--primary-color);
+        }
+
+        /* --- Styling GALERI FOTO BARU --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout responsif 2-4 kolom */
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 250px; /* Tinggi seragam untuk estetika */
+            object-fit: cover; /* Memastikan foto terisi penuh tanpa distorsi */
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.00); /* Efek zoom saat di-hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styling untuk Daftar Keterampilan */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .skills-list li {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px; /* Bentuk Pill/Tag */
+            font-size: 1.2 em;
+            letter-spacing: 1px;
+            /* Reset bullet kustom li */
+            padding-left: 15px; 
+            position: static;
+        }
+
+        .skills-list li::before {
+            content: none;
+        }
+        
+        /* Media Queries untuk Responsif */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                letter-spacing: 3px;
+            }
+            
+            .intro-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .profile-photo {
+                margin: 0 auto;
+            }
+            
+            .skills-list {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>Clarissa Salsabila Sari</h1>
+        
+        <div class="intro-section">
+            <img src="coklat.jpg" alt="My Photo Profile" class="profile-photo"/>
+            <div class="intro-text">
+                <p>Hi! I'm Clarissa Salsabila Sari, 21 years old, born on 6<sup>th</sup> July 2004 in Depok. I find great joy in <i>Photography</i> —a medium for capturing moments, light, and hidden narratives.</p>
+                <p>My other passion is urban exploration, I love the quiet satisfaction of strolling through cities, discovering new streets, and finding those secluded spots that hold a unique, memorable vibe.</p>
+            </div>
+        </div>
+		
+		    <h2>📝 Biodata</h2>
+        <div class="biodata">
+            <p>
+                Name: Clarissa Salsabila Sari</br>
+                NPM: 10123275</br>
+                Date of Birth: 6<sup>th</sup> July 2004</br>
+                Address: Perum. Taman duta - Cisalak</br>
+                No. Handphone: 082210566156
+            <p/>
+        </div>
+		
+		 <h3>🎓 Educational Journey</h3>
+        <ol> 
+            <li><b>2011 - 2016: </b> SDIT Pondok Duta</li>
+            <li><b>2017 - 2022: </b> Gontor Boarding School</li>
+            <li><b>2023 - Now: </b> Gunadarma University (Information System)</li>
+        </ol>
+
+        <h3>💼 Life & Experience</h3>
+        <p>My days are defined by a dynamic blend of academics and leadership:</p>
+        <ul>
+            <li><b>Student Life:</b> I am a university student, currently pursuing my degree in Information System. My studies keep me intellectually engaged and focused on future career goals in technology.</li>
+            <li><b>Work Experience:</b> Outside of my studies, I serve as a Scout Leader, actively involved in youth development. This valuable role allows me to teach essential life skills and nurture the next generation of leaders.
+			I also serve as an admin and copywriter for the extralingual community and the Porsija football club.I have also moderated photography seminars.</li>
+        </ul>
+		
+		<h3> Soft Skill</h3>
+        <div class="soft Skill">
+            <p>
+                I possess excellent Good Time Management skills, enabling me to handle concurrent projects effectively. 
+				I am capable of setting clear priorities, diligently adhering to work schedules, and consistently meeting deadlines. 
+				Furthermore, I am capable of demonstrating the necessary Discipline to sustain focus and maintain 
+				the high quality of work required in a demanding professional setting
+            <p/>
+        </div>
+		
+		 <h3>Gallery of My Experiences</h3>
+        <div class="gallery">
+            <div class="photo-item"><img src="12.jpg" alt="Street Photo Example"></div>
+            <div class="photo-item"><img src= "13.jpg" alt="Portrait Photo Example"></div>
+            <div class="photo-item"><img src="15.jpg" alt="Landscape Photo Example"></div>
+        </div>
+
+        <h2 id="photography">📷 Photography & Portfolio</h2>
+
+        <h3>Photography Skills</h3>
+        <ul class="skills-list">
+            <li>Highly motivated Aspiring Photographer with a strong technical foundation and an unwavering focus on human-centric visual storytelling.
+			Actively building expertise in Model Direction and agile Street Photography. 
+			Proficient in Manual Mode operation and editoring. Seeking an intensive learning environment to transition core photographic skills into professional execution.</li>
+            
+        </ul>
+
+        <h3>My Project Street Photography</h3>
+        <div class="gallery">
+            <div class="photo-item"><img src="2.jpg" alt="Street Photo Example"></div>
+            <div class="photo-item"><img src="3.jpg" alt="Portrait Photo Example"></div>
+            <div class="photo-item"><img src="1.jpg" alt="Landscape Photo Example"></div>
+        </div>
+		
+		<h3>My Project Model Photography</h3>
+        <div class="gallery">
+            <div class="photo-item"><img src="5.jpg" alt=" Photo Model Example"></div>
+            <div class="photo-item"><img src="7.jpg" alt="Photo Model Example"></div>
+            <div class="photo-item"><img src="6.jpg" alt="photo Model Example"></div>
+        </div>
+		
+		<h3>Training Certificates</h3>
+        <div class="gallery">
+            <div class="photo-item"><img src="ser1.jpg" alt="Street Photo Example"></div>
+            <div class="photo-item"><img src= "ser2.jpg" alt="Portrait Photo Example"></div>
+            <div class="photo-item"><img src="ser3.jpg" alt="Landscape Photo Example"></div>
+        </div>
+
+    </div> 
+
+</body>
+</html>
